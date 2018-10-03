@@ -66,7 +66,7 @@ class App extends Component {
         <Navbar total={this.state.total} />
         <Switch>
           <Route exact path='/' render={() => <Home addItem={this.addItem} products={this.state.products} />}></Route>
-          <Route exact path='/checkout' render={() => <Checkout />}></Route>
+          <Route exact path='/checkout' render={() => <Checkout total={this.state.total} />}></Route>
         </Switch>
       </div>
     );
