@@ -13,7 +13,7 @@ class ProductItem extends Component {
           <div className="card-title">{this.props.title}</div>
           <div className="card-subtitle">${this.props.price}</div>
           <div className="card-text">{this.props.description}</div>
-          <button className="btn btn-primary" onClick={() => {console.log(this.props.id)}}>Add to Cart</button>
+          <button className="btn btn-primary" onClick={() => {this.props.addItem(this.props.id)}}>Add to Cart</button>
         </div> {/*ends card*/}
       </div> // ends col-4
     );
