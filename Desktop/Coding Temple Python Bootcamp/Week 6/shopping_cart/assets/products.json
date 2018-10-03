@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "Chair",
+      "price": 49.99
+    },
+    {
+      "name": "Table",
+      "price": 129.99
+    },
+    {
+      "name": "Rug",
+      "price": 64.99
+    },
+    {
+      "name": "Placemat",
+      "price": 3.99
+    },
+    {
+      "name": "Dinner Plate",
+      "price": 6.99
+    },
+    {
+      "name": "Cup",
+      "price": 4.99
+    }
+  ]
+}

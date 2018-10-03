@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage | Shopping Cart</title>
+
+    <!--CDN for Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--Attaching our own main CSS file-->
+    <link rel="stylesheet" href="./static/css/main.css">
+  </head>
+
+
+  <body>
+
+    <header id="nav"></header>
+
+    <div class="container" id="items">
+      <div class="row">
+        <div class="col-md-3 card">
+          <!-- <img class="center card-img-top" src="#" alt="Placeholder Image"> -->
+          <div id="card-title"></div>
+          <div id="card-text"></div>
+        </div><!--Ends div for card-->
+      </div><!--Ends row-->
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <table class="table">
+            <thead id="table_head"></thead>
+            <tbody id="table_body"></tbody>
+          </table>
+        </div><!--Ends col-2-->
+      </div><!--Ends row-->
+    </div>
+
+
+    <!--CDNs for JQuery, AJAX, Boostrap-->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--Attaching our own main Javascript file-->
+    <script src="./static/js/app.js" type="module"></script>
+
+  </body>
+</html>
