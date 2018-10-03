@@ -6,7 +6,7 @@ class Checkout extends Component {
   render() {
     return (
       <div className="Checkout">
-        <Navbar />
+        <h1>Checkout</h1>
       </div>
     );
   }
