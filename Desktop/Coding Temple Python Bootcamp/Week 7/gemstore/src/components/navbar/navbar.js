@@ -21,7 +21,7 @@ class Navbar extends Component {
                 <NavLink className="nav-link" to='/checkout'>Checkout</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link disabled" to='/checkout'>Total: $0.00</NavLink>
+                <NavLink className="nav-link disabled" to='/checkout'>Total: ${this.props.total}</NavLink>
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">

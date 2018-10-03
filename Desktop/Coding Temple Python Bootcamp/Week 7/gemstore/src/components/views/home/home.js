@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './home.css';
+import ProductList from '../../productList/productList.js';
 
 
 class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <h1>Home</h1>
-      </div>
+        <div className="container">
+          <ProductList products={this.props.products} />
+        </div> {/*ends container*/}
+      </div> //ends div for Home
     );
   }
 }

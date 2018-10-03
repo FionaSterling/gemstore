@@ -1,0 +1,25 @@
+.card {
+  padding: 25px;
+}
+
+.card-img {
+  margin: 15px auto;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 125%;
+}
+
+.card-subtitle {
+  font-style: italic;
+}
+
+.card-text, .card-title, .card-subtitle {
+  padding: 5px;
+}
+
+.btn-primary {
+  width: 50%;
+  margin: 15px auto;
+}

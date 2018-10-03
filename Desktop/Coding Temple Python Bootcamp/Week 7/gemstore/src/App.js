@@ -24,12 +24,21 @@ class App extends Component {
     });
   }
 
+  // calculate total and return fixed number to two decimals
+  calcTotal = () => {
+    let total = this.state.total;
+    total += 10;
+    this.setState({
+      total: total
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar total={this.state.total} />
         <Switch>
-          <Route exact path='/' render={() => <Home />}></Route>
+          <Route exact path='/' render={() => <Home calcTotal={this.calcTotal} products={this.state.products} />}></Route>
           <Route exact path='/index' render={() => <Home />}></Route>
           <Route exact path='/checkout' render={() => <Checkout />}></Route>
         </Switch>
