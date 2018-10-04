@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './productItem.css';
+import PanelTabs from '../tabs/tabs.js';
 
 
 class ProductItem extends Component {
@@ -14,6 +15,7 @@ class ProductItem extends Component {
           <div className="card-subtitle">${this.props.price}</div>
           <div className="card-text">{this.props.description}</div>
           <button className="btn btn-primary" onClick={() => {this.props.addItem(this.props.id)}}>Add to Cart</button>
+          <PanelTabs product={this.props.product} />
         </div> {/*ends card*/}
       </div> // ends col-4
     );
