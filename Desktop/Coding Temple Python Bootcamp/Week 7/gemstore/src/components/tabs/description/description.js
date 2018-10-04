@@ -5,7 +5,7 @@ class Description extends Component {
   render() {
     return (
       <div className="Description">
-        This is the description component.
+        {this.props.product.description}
       </div>
     );
   }

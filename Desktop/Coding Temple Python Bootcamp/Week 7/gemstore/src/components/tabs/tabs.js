@@ -33,8 +33,8 @@ class PanelTabs extends Component {
             </ul>
           </TabList>
           {/* TabPanel renders the proper component to show the information on that tab*/}
-          <TabPanel><Description /></TabPanel>
-          <TabPanel><Reviews /></TabPanel>
+          <TabPanel><Description product={this.props.product} /></TabPanel>
+          <TabPanel><Reviews product={this.props.product} /></TabPanel>
           <TabPanel><Specs /></TabPanel>
         </Tabs>
       </div>
