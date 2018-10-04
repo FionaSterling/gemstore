@@ -5,6 +5,8 @@ import Navbar from './components/navbar/navbar.js';
 import { Switch, Route } from 'react-router-dom';
 import Home from './components/views/home/home.js';
 import Checkout from './components/views/checkout/checkout.js';
+import Animal from './components/views/animal/animal.js';
+
 
 class App extends Component {
   constructor() {
@@ -12,7 +14,8 @@ class App extends Component {
     this.state = {
       total: undefined,
       cart: undefined,
-      products: undefined
+      products: undefined,
+      animals: undefined
     }
   }
 
@@ -20,8 +23,11 @@ class App extends Component {
     this.setState({
       total : 0,
       cart: [],
-      products: products
+      products: products,
+      animals: []
     });
+
+    this.getData();
   }
 
   // calculate total and return fixed number to two decimals
@@ -80,6 +86,14 @@ class App extends Component {
     this.calcTotal();
   }
 
+
+  // function to get data from json file for animals
+  getData = () => {
+    fetch(`https://learnwebcode.github.io/json-example/animals-1.json`).then(response => response.json())
+      .then(data => this.setState({ animals: data }));;
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -87,6 +101,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => <Home addItem={this.addItem} products={this.state.products} />}></Route>
           <Route exact path='/checkout' render={() => <Checkout total={this.state.total} cart={this.state.cart} removeItem={this.removeItem}/>}></Route>
+          <Route exact path='/animal' render={() => <Animal animals={this.state.animals}/>}></Route>
         </Switch>
       </div>
     );

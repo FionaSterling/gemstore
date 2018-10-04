@@ -21,6 +21,9 @@ class Navbar extends Component {
                 <NavLink className="nav-link" to='/checkout'>Checkout</NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to='/animal'>Animals</NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link disabled" to='/checkout'>Total: ${this.props.total}</NavLink>
               </li>
             </ul>
