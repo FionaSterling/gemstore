@@ -60,13 +60,33 @@ class App extends Component {
     this.calcTotal();
   }
 
+  // remove items on button click
+  removeItem = (id) => {
+    // get current cart
+    let items = this.state.cart;
+
+    // loop through array to see if items is in there
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].id === id) {
+        items.splice(i, 1);
+        break;
+      }
+    }
+
+    this.setState({
+      cart: items
+    });
+
+    this.calcTotal();
+  }
+
   render() {
     return (
       <div className="App">
         <Navbar total={this.state.total} />
         <Switch>
           <Route exact path='/' render={() => <Home addItem={this.addItem} products={this.state.products} />}></Route>
-          <Route exact path='/checkout' render={() => <Checkout total={this.state.total} />}></Route>
+          <Route exact path='/checkout' render={() => <Checkout total={this.state.total} cart={this.state.cart} removeItem={this.removeItem}/>}></Route>
         </Switch>
       </div>
     );
