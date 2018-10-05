@@ -6,28 +6,71 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './components/views/home/home.js';
 import Checkout from './components/views/checkout/checkout.js';
 import Animal from './components/views/animal/animal.js';
+import firebase from './firebase';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      total: undefined,
-      cart: undefined,
-      products: undefined,
+      total: 0,
+      cart: [],
+      products: products,
       animals: undefined
     }
+
+    // add products to Firebase - only need to run once, then products are stored until we overwrite or remove them with a separate line of code
+    // firebase.database().ref('products').set(products);
+    // firebase.database().ref('cart').set(null);
   }
 
   componentWillMount() {
-    this.setState({
-      total : 0,
-      cart: [],
-      products: products,
-      animals: []
+    // this.setState({
+    //   total : 0,
+    //   cart: [],
+    //   products: products,
+    //   animals: []
+    // });
+
+
+    // grabbing products from cloud to store into the local products state
+    const dbProducts = firebase.database().ref('products');
+    dbProducts.on('value', (response) => {
+      let items = response.val();
+      let newProducts = [];
+
+      // check if there are products in the cloud database first
+      if (items != null) {
+        for (let index in items) {
+          newProducts.push(items[index]);
+        }
+      }
+
+      this.setState({ products: newProducts });
     });
 
-    this.getData();
+    // grabbing cart from cloud to store into the local cart state
+    const dbCart = firebase.database().ref('cart');
+    dbCart.on('value', (response) => {
+      let items = response.val();
+      let total = 0;
+      let newCart = [];
+
+      // check if there are products in the cloud database first
+      if (items != null) {
+        for (let index in items) {
+          newCart.push(items[index]);
+          total += items[index].price;
+        }
+      }
+
+      this.setState({
+        cart: newCart,
+        total: total.toFixed(2)
+      });
+    });
+
+    // this.getData();
   }
 
   // calculate total and return fixed number to two decimals
@@ -43,6 +86,9 @@ class App extends Component {
     this.setState({
       total: total.toFixed(2)
     });
+
+    // add total to firebase
+    firebase.database().ref('total').set(total.toFixed(2));
   }
 
   // add item on button click
@@ -64,6 +110,9 @@ class App extends Component {
     });
 
     this.calcTotal();
+
+    // add updated cart to cloud
+    firebase.database().ref('cart').set(items);
   }
 
   // remove items on button click
@@ -84,6 +133,9 @@ class App extends Component {
     });
 
     this.calcTotal();
+
+    // add updated cart to cloud
+    firebase.database().ref('cart').set(items);
   }
 
 
